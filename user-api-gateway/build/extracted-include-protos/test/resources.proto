@@ -1,0 +1,90 @@
+syntax = "proto3";
+package dev.grpc.user;
+
+message CreateUserRequest {
+  string fullName = 1;
+  string email = 2;
+  string address = 3;
+  string phoneNumber = 4;
+}
+
+message CreateUserResponse {
+  int64 userId = 1;
+}
+
+message CreateListUserRequest {
+  repeated CreateUserRequest createUserRequest = 1;
+}
+
+message CreateListUserResponse {
+  repeated CreateUserResponse createUserResponse = 1;
+}
+
+message GetUserRequest {
+  int64 userId = 1;
+}
+
+message GetUserResponse {
+  int64 userId = 1;
+  string fullName = 2;
+  string email = 3;
+  string address = 4;
+  string phoneNumber = 5;
+}
+
+message GetListUserResponse {
+  repeated GetUserResponse getUserResponse = 1;
+}
+
+
+message SearchUserByFullNameRequest {
+  string fullName = 1;
+}
+
+message SearchUserByFullNameResponse {
+  repeated GetUserResponse getUserResponse = 1;
+}
+
+message UpdateUserRequest{
+  int64 userId = 1;
+  string fullName = 2;
+  string email = 3;
+  string address = 4;
+  string phoneNumber = 5;
+}
+
+message UpdateUserResponse {
+  int64 userId = 1;
+}
+
+message UpdateListUserRequest {
+  repeated UpdateUserRequest updateUserRequest = 1;
+}
+
+message UpdateListUserResponse {
+  repeated UpdateUserResponse updateUserResponse = 1;
+}
+message DeleteUserRequest {
+  int64 userId = 1;
+}
+
+message DeleteUserResponse {
+  int64 userId = 1;
+}
+
+message DeleteListUserRequest {
+  repeated DeleteUserRequest deleteUserRequest = 1;
+}
+
+message DeleteListUserResponse {
+  repeated DeleteUserResponse deleteUserResponse = 1;
+}
+
+message ErrorDetail {
+  // Error code
+  string errorCode = 1;
+  //Error message
+  string message = 2;
+  // Additional metadata associated with the Error
+  map<string, string> metadata = 3;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package dev.grpc.user;
+
+import "resources.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "dev.grpc.user.resource";
+option java_multiple_files = true;
+
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  rpc CreateListUser(CreateListUserRequest) returns (CreateListUserResponse);
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc GetListUser(google.protobuf.Empty) returns (GetListUserResponse);
+  rpc SearchUserByFullName(SearchUserByFullNameRequest) returns (SearchUserByFullNameResponse);
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+  rpc UpdateListUser(UpdateListUserRequest) returns (UpdateListUserResponse);
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+  rpc DeleteListUser(DeleteListUserRequest) returns (DeleteListUserResponse);
+}
